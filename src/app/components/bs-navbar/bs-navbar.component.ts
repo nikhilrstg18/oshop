@@ -10,16 +10,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./bs-navbar.component.css']
 })
 export class BsNavbarComponent {
-  private user$;
   
   constructor(private auth:AuthService, private router: Router) {
-    if(this.auth.user)
-    this.user$ = this.auth.user;
-   }
+
+  }
 
   logout() {
     this.auth.logout()
-    this.auth.destoryUser();
+    this.auth.user$ = null;
     this.router.navigate(['/']);
   }
 
