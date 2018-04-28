@@ -19,21 +19,16 @@ export const routes = [
     { path: 'products', component: ProductsComponent },
     { path: 'shopping-cart', component: ShoppingCartComponent },
 
-    // { path: 'check-out', component: CheckoutComponent, canActivate: [AuthGuard] },
-    // { path: 'my-orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
-    // { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard] },
-    { path: 'check-out', component: CheckoutComponent },
-    { path: 'my-orders', component: MyOrdersComponent },
-    { path: 'order-success', component: OrderSuccessComponent },
+    { path: 'check-out', component: CheckoutComponent, canActivate: [AuthGuard] },
+    { path: 'my-orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
+    { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard] },
 
-    // { path: 'admin-orders', component: AdminOrdersComponent, canActivate: [AuthGuard, AdminAuthGuard] },
-    // { path: 'admin-products/new', component: AdminProductFormComponent, canActivate: [AuthGuard, AdminAuthGuard] },
-    // { path: 'admin-products/:id', component: AdminProductFormComponent, canActivate: [AuthGuard, AdminAuthGuard] },
-    // { path: 'admin-products', component: AdminProductsComponent, canActivate: [AuthGuard, AdminAuthGuard] },
-    { path: 'admin-orders', component: AdminOrdersComponent },
-    { path: 'admin-products/new', component: AdminProductFormComponent },
-    { path: 'admin-products/:id', component: AdminProductFormComponent },
-    { path: 'admin-products', component: AdminProductsComponent },
+
+    { path: 'admin-orders', component: AdminOrdersComponent, canActivate: [AuthGuard] },
+    { path: 'admin-products/new', component: AdminProductFormComponent, canActivate: [AuthGuard] },
+    { path: 'admin-products/:id', component: AdminProductFormComponent, canActivate: [AuthGuard] },
+    { path: 'admin-products', component: AdminProductsComponent, canActivate: [AuthGuard] },
+
 
     { path: '**', component: OopsComponent },
 ];

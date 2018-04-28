@@ -24,7 +24,7 @@ export class AuthService {
       .signOut();  
   }
 
-  get user(){
+  get user():Observable<firebase.User>{
     return this.user$;
   }
 
