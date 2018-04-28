@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   
-  firebase_420:{
+  firebase:{
     apiKey: "AIzaSyC8A7O8EeWYSyO9QgZYZ7mFMNE1-MA0afY",
     authDomain: "o-shop-e-com.firebaseapp.com",
     databaseURL: "https://o-shop-e-com.firebaseio.com",
