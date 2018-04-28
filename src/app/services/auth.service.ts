@@ -1,35 +1,49 @@
+import { AppUser } from './../models/app-user';
+import { UserService } from './user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/observable/of';
 
 @Injectable()
 export class AuthService {
   user$: Observable<firebase.User>;
 
   constructor(
-    private router:Router,
-    private route:ActivatedRoute,
+    private userService: UserService,
+    private route: ActivatedRoute,
     private afAuth: AngularFireAuth) {
     this.user$ = afAuth.authState;
-      //email, displayName, photoUrl under uid unders /users
   }
 
-  gLogin(){
+  gLogin() {
     let returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
-    localStorage.setItem('returnUrl',returnUrl);
+    localStorage.setItem('returnUrl', returnUrl);
 
     this.afAuth
-    .auth
-    .signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+      .auth
+      .signInWithRedirect(new firebase.auth.GoogleAuthProvider());
   }
 
   logout() {
     this.afAuth
       .auth
-      .signOut();  
-      
+      .signOut();
+
+  }
+  
+  get appUser$(): Observable<AppUser> {
+    if (this.user$)
+      return this.user$
+        .switchMap(user => {
+          if (user)
+            return this.userService.get(user.uid).valueChanges();
+
+          return Observable.of(null);
+        });
   }
 
 }

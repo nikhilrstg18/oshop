@@ -18,7 +18,7 @@ export class AppComponent {
     auth.user$.subscribe(user => {
       if (user) {
         userService.save(user);
-        debugger
+        
         if (localStorage.getItem('returnUrl')) {
           let returnUrl = localStorage.getItem('returnUrl')
           localStorage.removeItem('returnUrl');
@@ -27,5 +27,5 @@ export class AppComponent {
       }
     })
   }
-  
+
 }

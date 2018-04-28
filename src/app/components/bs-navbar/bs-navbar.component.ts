@@ -1,3 +1,4 @@
+import { AppUser } from './../../models/app-user';
 import { Observable } from 'rxjs/Observable';
 import { AuthService } from './../../services/auth.service';
 import { Component } from '@angular/core';
@@ -10,8 +11,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./bs-navbar.component.css']
 })
 export class BsNavbarComponent {
-  
-  constructor(private auth:AuthService, private router: Router) {
+  appUser: AppUser;
+
+  constructor(private auth: AuthService, private router: Router) {
+    auth.appUser$
+      .subscribe(appUser => this.appUser = appUser);
 
   }
 
@@ -21,5 +25,5 @@ export class BsNavbarComponent {
     this.router.navigate(['/']);
   }
 
- 
+
 }
