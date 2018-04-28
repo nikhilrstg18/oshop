@@ -1,5 +1,8 @@
-import { AngularFireAuth } from 'angularfire2/auth';
-import { Component} from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { AuthService } from './../../services/auth.service';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'bs-navbar',
@@ -7,20 +10,18 @@ import { Component} from '@angular/core';
   styleUrls: ['./bs-navbar.component.css']
 })
 export class BsNavbarComponent {
-
-  constructor(private afAuth:AngularFireAuth) { 
-    //For checking what happens when logged in and logging out
-    afAuth.authState.subscribe(res => {
-      console.log(res);
-    })
-    //email, displayName, photoUrl under uid unders /users
-
-  }
+  private user$;
+  
+  constructor(private auth:AuthService, private router: Router) {
+    if(this.auth.user)
+    this.user$ = this.auth.user;
+   }
 
   logout() {
-    this.afAuth
-      .auth
-      .signOut();
-      console.log('logged out')
+    this.auth.logout()
+    this.auth.destoryUser();
+    this.router.navigate(['/']);
   }
+
+ 
 }
