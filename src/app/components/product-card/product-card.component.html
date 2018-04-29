@@ -1,3 +1,15 @@
-<p>
-  product-card works!
-</p>
+<div *ngIf='product.title' 
+      class="card" 
+      [style.width.rem]='cardWidth? cardWidth: auto'>
+  <img class="card-img-top" 
+      [src]="product.imageUrl? product.imageUrl:''" 
+      [style.height.rem]='imageHeight? imageHeight:auto'>
+  <div class="card-body">
+    <h5 class="card-title">{{product.title}}</h5>
+    <p class="card-text">{{product.price | currency}}</p>
+   
+  </div>
+  <div class="card-footer">
+      <a *ngIf='showActions'class="btn btn-outline-success btn-block">Add to Cart</a>
+  </div>
+</div>
