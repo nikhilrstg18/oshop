@@ -9,6 +9,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng5-validation';
+import { DataTableModule } from "angular5-data-table";
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
 import { AppComponent } from './app.component';
@@ -69,7 +71,9 @@ import { routes } from './app.route';
     NgbModule.forRoot(),
     RouterModule.forRoot(routes),
     FormsModule,
-    CustomFormsModule
+    CustomFormsModule,
+    DataTableModule,
+    AngularFontAwesomeModule
 
   ],
   providers: [
