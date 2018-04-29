@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-product-form.component.css']
 })
 export class AdminProductFormComponent implements OnInit {
+  heading: string;
+  constructor(private route: ActivatedRoute) {
+    let param = route.snapshot.queryParamMap.get('id');
+    if (param)
+      this.heading = 'Edit Product';
 
-  constructor() { }
+    this.heading = 'New Product';
+  }
 
   ngOnInit() {
   }
