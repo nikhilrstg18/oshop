@@ -1,8 +1,10 @@
+import { Product } from './../../../models/product';
 import { CategoryService } from './../../../services/category.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
 import 'rxjs/add/operator/take';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'admin-product-form',
@@ -12,7 +14,7 @@ import 'rxjs/add/operator/take';
 export class AdminProductFormComponent implements OnInit {
   heading: string;
   categories$;
-  product = {};
+  product : Product;
   id:string;
   constructor(
     private router: Router,
@@ -26,7 +28,7 @@ export class AdminProductFormComponent implements OnInit {
     if (this.id) {
       this.heading = 'Edit Product';
       productService.get(this.id)
-      .valueChanges()
+      .valueChanges() 
       .take(1)
       .subscribe(p =>{      
         this.product = p;

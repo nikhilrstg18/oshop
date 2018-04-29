@@ -1,12 +1,13 @@
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
+import { Product } from '../models/product';
 
 @Injectable()
 export class ProductService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  get(productId:string){
+  get(productId:string):AngularFireObject<Product>{
     return this.db.object('/products/'+productId);
   }
 
@@ -27,9 +28,4 @@ export class ProductService {
   delete(productId){
     return this.db.object('/products/'+productId).remove();
   }
-
-
-
-
-
 }
