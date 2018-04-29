@@ -4,9 +4,16 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ProductService {
 
-  constructor(private db:AngularFireDatabase) { }
-  create(product){
+  constructor(private db: AngularFireDatabase) { }
+
+  create(product) {
     return this.db.list('/products').push(product);
+  }
+
+  getAll() {
+    return this.db.list('/products/').snapshotChanges().map(product => {
+      return product.map(p => ({ key: p.key, ...p.payload.val() }));
+    });
   }
 
 }
