@@ -14,8 +14,8 @@ import { Observable } from 'rxjs/Observable';
 export class AdminProductFormComponent implements OnInit {
   heading: string;
   categories$;
-  product : Product= {key:'',title:'', price:0, imageUrl:'', category:'' };
-  id:string;
+  product: Product = { key: '', title: '', price: 0, imageUrl: '', category: '' };
+  id: string;
   constructor(
     private router: Router,
     private productService: ProductService,
@@ -28,28 +28,28 @@ export class AdminProductFormComponent implements OnInit {
     if (this.id) {
       this.heading = 'Edit Product';
       productService.get(this.id)
-      .valueChanges() 
-      .take(1)
-      .subscribe(p =>{      
-        this.product = p;
-      });
+        .valueChanges()
+        .take(1)
+        .subscribe(p => {
+          this.product = p;
+        });
     }
-    else{
-    this.heading = 'New Product';
+    else {
+      this.heading = 'New Product';
     }
   }
 
   save(product) {
-    if(this.id)
+    if (this.id)
       this.productService.udpate(this.id, this.product)
-    
+
     this.productService.create(product).then()
     this.router.navigate(['/admin-products']);
   }
 
-  delete(){
-    if(!confirm('Are you sure you want to delete this product?')) return;
-    
+  delete() {
+    if (!confirm('Are you sure you want to delete this product?')) return;
+
     this.productService.delete(this.id);
     this.router.navigate(['/admin-products']);
 
