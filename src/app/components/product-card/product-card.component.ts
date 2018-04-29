@@ -8,18 +8,26 @@ import { Product } from '../../models/product';
   styleUrls: ['./product-card.component.css']
 })
 export class ProductCardComponent {
-  @Input('product') product:Product;
-  @Input('card-width') cardWidth:string;
-  @Input('image-height') imageHeight:string;
-  @Input('show-actions') showActions:boolean;
+  @Input('product') product: Product;
+  @Input('card-width') cardWidth: string;
+  @Input('image-height') imageHeight: string;
+  @Input('show-actions') showActions: boolean;
+  @Input('shopping-cart') shoppingCart;
 
   constructor(
-    private cartService:ShoppingCartService
+    private cartService: ShoppingCartService
   ) { }
 
-  addToCart(product: Product){
+  addToCart(product: Product) {
     this.cartService.addToCart(product);
     console.log('added to cart');
+  }
+  
+  getQuantity() {
+    if (!this.shoppingCart) return 0;
+
+    let item = this.shoppingCart.items[this.product.key];
+    return item ? item['quantity'] : 0;
   }
 
 }
