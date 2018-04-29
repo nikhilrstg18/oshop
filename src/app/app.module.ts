@@ -6,7 +6,9 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CustomFormsModule } from 'ng5-validation';
 
 
 import { AppComponent } from './app.component';
@@ -38,6 +40,7 @@ import { environment } from './../environments/environment';
 import { routes } from './app.route';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +68,8 @@ import { routes } from './app.route';
     AngularFireDatabaseModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(routes),
+    FormsModule,
+    CustomFormsModule
 
   ],
   providers: [
