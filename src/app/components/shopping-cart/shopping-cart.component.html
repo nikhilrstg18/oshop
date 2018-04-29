@@ -16,7 +16,17 @@
     <tbody>
       <tr *ngFor='let item of cart.items'>
         <td>{{ item.product.title }}</td>
-        <td>{{ item.quantity }}</td>
+        <td>
+            {{ item.quantity }}
+          <!-- <button 
+            *ngIf='cart.getQuantity(product) === 0;else updateQuantity' \
+            (click)='addToCart()' 
+            class="btn btn-outline-success btn-sm btn-block">Add to Cart
+          </button>
+          <ng-template #updateQuantity>
+            <product-quantity [product]='item.product' [shopping-cart]='cart'></product-quantity>
+          </ng-template> -->
+        </td>
         <td>{{ item.totalPrice | currency }}</td>
       </tr>
     </tbody>
