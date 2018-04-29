@@ -6,8 +6,8 @@ export class ProductService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  create(product) {
-    return this.db.list('/products').push(product);
+  get(productId:string){
+    return this.db.object('/products/'+productId);
   }
 
   getAll() {
@@ -15,5 +15,21 @@ export class ProductService {
       return product.map(p => ({ key: p.key, ...p.payload.val() }));
     });
   }
+
+  create(product) {
+    return this.db.list('/products').push(product);
+  }
+
+  udpate(productId, product){
+    return this.db.object('/products/'+productId).update(product);
+  }
+  
+  delete(productId){
+    return this.db.object('/products/'+productId).remove();
+  }
+
+
+
+
 
 }
