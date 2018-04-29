@@ -14,7 +14,7 @@ import { Observable } from 'rxjs/Observable';
 export class AdminProductFormComponent implements OnInit {
   heading: string;
   categories$;
-  product : Product;
+  product : Product= {key:'',title:'', price:0, imageUrl:'', category:'' };
   id:string;
   constructor(
     private router: Router,
