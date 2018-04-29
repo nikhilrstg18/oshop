@@ -1,4 +1,5 @@
 
 .sticky-top{
-    padding-top:80px;
+    top:80px;
+    margin-bottom: 20px;
 }

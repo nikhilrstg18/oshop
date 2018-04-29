@@ -6,10 +6,11 @@
       [style.height.rem]='imageHeight? imageHeight:auto'>
   <div class="card-body">
     <h5 class="card-title">{{product.title}}</h5>
-    <p class="card-text">{{product.price | currency}}</p>
-   
+    <p class="card-text">{{product.price | currency}}</p>   
   </div>
   <div class="card-footer">
-      <a *ngIf='showActions'class="btn btn-outline-success btn-block">Add to Cart</a>
+      <button *ngIf='showActions'
+            (click)= 'addToCart(product)'      
+            class="btn btn-outline-success btn-block">Add to Cart</button>
   </div>
 </div>
