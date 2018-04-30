@@ -36,7 +36,14 @@ export class ShoppingCartService {
       .take(1)
       .subscribe(item => {
         item
-        ? itemRef.update({ product: product, quantity: item['quantity'] + change })
+        ? itemRef.update({
+          product: product,
+          quantity: item['quantity'] != 0
+            ? item['quantity'] + change
+            : item['quantity'] + change > 0
+              ? change
+              : 0
+            })
         : itemRef.set({ product: product, quantity: 1 });
       });
   }
