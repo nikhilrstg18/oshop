@@ -21,7 +21,8 @@ export class ShoppingCartComponent implements OnInit {
       key: item.key, 
       title:item.title, 
       imageUrl:item.imageUrl, 
-      price:item.price };
+      price:item.price ,  
+      quantity:item.quantity};
   }
 
   clearCart(){

@@ -50,22 +50,21 @@ export class ShoppingCartService {
               : 0;
           if (qty === 0) {
             itemRef.remove();
+          } else {
+            itemRef.update({
+              title: product.title,
+              imageUrl: product.imageUrl,
+              price: product.price,
+              quantity: qty
+            });
           }
-          else {
-            item
-              ? itemRef.update({
-                title: product.title,
-                imageUrl: product.imageUrl,
-                price: product.price,
-                quantity: qty
-              })
-              : itemRef.set({
-                title: product.title,
-                imageUrl: product.imageUrl,
-                price: product.price,
-                quantity: 1
-              });
-          }
+        } else {
+          itemRef.set({
+            title: product.title,
+            imageUrl: product.imageUrl,
+            price: product.price,
+            quantity: 1
+          });
         }
       });
   }
