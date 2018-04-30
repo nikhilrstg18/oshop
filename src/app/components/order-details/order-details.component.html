@@ -1,0 +1,38 @@
+<h1>Order Details</h1>
+<br />
+<div *ngFor='let order of order$ | async'>
+  <!-- <div *ngIf='order.key === userId'> -->
+      <div class="row">
+          <p>
+            Order Date : {{order.datePlaced | date}}
+          </p>
+          <div class="col-xs-12 com-sm-12 col-md-6 col-lg-6">
+            <!-- <shopping-cart-summary [cart]='order'></shopping-cart-summary> -->
+          </div>
+          <div class="col-xs-12 com-sm-12 col-md-6 col-lg-6">
+            Shipping Details
+            <ul class="list-group list-group-flush" *ngIf='order.shipping'>
+              <li class="list-group-item ">
+                Customer :
+                <div class="float-right">
+                  {{shipping.name}}
+                </div>
+      
+              </li>
+              <li class="list-group-item ">
+                Address :
+                <div class="float-right">
+                  {{shipping.line1}}, {{shipping.line2}}
+                </div>
+              </li>
+              <li class="list-group-item ">
+                City :
+                <div class="float-right">
+                  {{shipping.city}}
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+  <!-- </div> -->
+</div>

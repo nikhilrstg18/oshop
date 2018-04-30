@@ -43,6 +43,7 @@ import { environment } from './../environments/environment';
 import { routes } from './app.route';
 import { ShoppingCartSummaryComponent } from './components/shopping-cart-summary/shopping-cart-summary.component';
 import { ShippingFormComponent } from './components/shipping-form/shipping-form.component';
+import { OrderDetailsComponent } from './components/order-details/order-details.component';
 
 
 
@@ -64,7 +65,8 @@ import { ShippingFormComponent } from './components/shipping-form/shipping-form.
     ShoppingCartComponent,
     CheckoutComponent,
     ShoppingCartSummaryComponent,
-    ShippingFormComponent
+    ShippingFormComponent,
+    OrderDetailsComponent
   ],
   imports: [
     BrowserModule,
