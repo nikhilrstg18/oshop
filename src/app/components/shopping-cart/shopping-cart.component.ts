@@ -24,4 +24,8 @@ export class ShoppingCartComponent implements OnInit {
       price:item.price };
   }
 
+  clearCart(){
+    this.cartService.clearCart();
+  }
+
 }
