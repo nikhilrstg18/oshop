@@ -24,5 +24,4 @@ export class ShoppingCartComponent implements OnInit {
       price:item.price };
   }
 
-
 }
