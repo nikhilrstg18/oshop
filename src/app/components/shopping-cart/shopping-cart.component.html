@@ -11,7 +11,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th style='width:15%'></th>
+        <th style='width:13%'></th>
         <th>Product</th>
         <th class='text-center' style='width:25%'>Quantity</th>
         <th class='text-right'style='width:15%'>Price</th>
@@ -19,7 +19,7 @@
     </thead>
     <tbody>
       <tr *ngFor='let item of cart.items'>
-        <td style='width:15%'>
+        <td style='width:13%'>
           <img [src]='item.imageUrl' class='thumbnail rounded'>
         </td>
         <td>{{ item.title }}</td>
@@ -31,7 +31,7 @@
     </tbody>
     <tfoot>
       <tr>
-        <th style='width:15%'></th>
+        <th style='width:13%'></th>
         <th></th>
         <th class='text-center'> Total Price :</th>
         <th class='text-right'> {{ cart.totalPrice | currency }}</th>
