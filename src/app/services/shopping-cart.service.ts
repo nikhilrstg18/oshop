@@ -16,8 +16,8 @@ export class ShoppingCartService {
   async get(): Promise<Observable<ShoppingCart>> {
     let cartId = await this.getOrCreateCartId();
     return this.db.object('/shopping-carts/' + cartId)
-    .valueChanges()
-    .map(x=> new ShoppingCart(x['items']));
+      .valueChanges()
+      .map(x => new ShoppingCart(x['items']));
   }
 
   async addToCart(product: Product) {
@@ -28,35 +28,45 @@ export class ShoppingCartService {
     this.updateCartItem(product, -1);
   }
 
-  async clearCart(){
+  async clearCart() {
     let cartId = await this.getOrCreateCartId();
-    this.db.object('/shopping-carts/' + cartId+'/items').remove();
+    this.db.object('/shopping-carts/' + cartId + '/items').remove();
 
   }
 
-  private async updateCartItem(product:Product, change:number){
+  private async updateCartItem(product: Product, change: number) {
     let cartId = await this.getOrCreateCartId();
     let itemRef = this.getItemRef(cartId, product.key);
+    let qty: number;
     let item$ = itemRef
       .valueChanges()
       .take(1)
       .subscribe(item => {
-        item
-        ? itemRef.update({
-          title:product.title,
-          imageUrl:product.imageUrl,
-          price:product.price,
-          quantity: item['quantity'] != 0
+        if (item) {
+          qty = item['quantity'] != 0
             ? item['quantity'] + change
             : item['quantity'] + change > 0
               ? change
-              : 0
-            })
-        : itemRef.set({ 
-          title:product.title,
-          imageUrl:product.imageUrl,
-          price:product.price,
-          quantity: 1 });
+              : 0;
+          if (qty === 0) {
+            itemRef.remove();
+          }
+          else {
+            item
+              ? itemRef.update({
+                title: product.title,
+                imageUrl: product.imageUrl,
+                price: product.price,
+                quantity: qty
+              })
+              : itemRef.set({
+                title: product.title,
+                imageUrl: product.imageUrl,
+                price: product.price,
+                quantity: 1
+              });
+          }
+        }
       });
   }
 
@@ -68,9 +78,9 @@ export class ShoppingCartService {
     return this.db.list('shopping-carts/').push({
       dateCreated: new Date().getTime()
     });
-  }  
+  }
 
-  private async getOrCreateCartId():Promise<string> {
+  private async getOrCreateCartId(): Promise<string> {
     let cartId = localStorage.getItem('cartId')
     if (cartId) return cartId;
 
