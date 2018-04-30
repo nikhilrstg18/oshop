@@ -1,26 +1,8 @@
 <h1>Shipping</h1>
 <br />
-
-<div class="row">
+<div class="row" *ngIf='cart$ | async as cart'>
   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 check-out">
-    <form (ngSubmit)='placeOrder(f.value)' #f='ngForm'>
-      <div class='form-group'>
-        <label for="name">Name</label>
-        <input ngModel id='name' name='name' type="text" class="form-control">
-      </div>
-      <div class='form-group'>
-        <label for="line1">Address</label>
-        <input ngModel id='line1' name='line1' type="text" class="form-control" placeholder="Address Line 1">
-        <input ngModel id='line2' name='line2' type="text" class="form-control" placeholder="Address Line 2">
-      </div>
-      <div class='form-group'>
-        <label for="city">City</label>
-        <input ngModel id='city' name='city' type="text" class="form-control">
-      </div>
-      <button class="btn btn-outline-success">Place Order</button>
-      <br />
-      <br />
-    </form>
+    <shipping-form [cart]='cart'></shipping-form>
   </div>
   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
     <shopping-cart-summary [cart]='cart'></shopping-cart-summary>

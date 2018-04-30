@@ -1,0 +1,34 @@
+<form (ngSubmit)='placeOrder(f.value)' #f='ngForm'>
+    <div class='form-group'>
+      <label for="name">Name</label>
+      <input #name='ngModel' required [(ngModel)]='shipping.name' id='name' name='name' type="text" class="form-control">
+      <div class="alert alert-danger" *ngIf='name.touched && !name.valid' >
+        <span *ngIf='name.errors.required'>Name is Required.</span>
+      </div>
+    </div>
+
+    <div class='form-group'>
+      <label for="line1">Address</label>
+      <input #line1='ngModel' required [(ngModel)]='shipping.line1' id='line1' name='line1' type="text" class="form-control" placeholder="Address Line 1">        
+      <div class="alert alert-danger" *ngIf='line1.touched && !line1.valid' >
+          <span *ngIf='line1.errors.required'>Address Line 1 is Required.</span>
+        </div>
+    </div>
+    <div class='form-group'>
+        <label for=""></label>
+        <input #line2='ngModel' required [(ngModel)]='shipping.line2' id='line2' name='line2' type="text" class="form-control" placeholder="Address Line 2">
+        <div class="alert alert-danger" *ngIf='line2.touched && !line2.valid' >
+            <span *ngIf='line2.errors.required'>Address Line 2 is Required.</span>
+          </div>
+      </div>
+    <div class='form-group'>
+      <label for="city">City</label>
+      <input #city ='ngModel' required [(ngModel)]='shipping.city' id='city' name='city' type="text" class="form-control">
+      <div class="alert alert-danger" *ngIf='city.touched && !city.valid' >
+          <span *ngIf='city.errors.required'>City is Required.</span>
+        </div>
+    </div>
+    <button class="btn btn-outline-success">Place Order</button>
+    <br />
+    <br />
+  </form>
