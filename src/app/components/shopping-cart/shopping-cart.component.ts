@@ -13,8 +13,16 @@ export class ShoppingCartComponent implements OnInit {
     private cartService:ShoppingCartService) { }
 
   async ngOnInit() {
-    this.cart$= await this.cartService.get();
+    this.cart$ = await this.cartService.get();
   }
-  
+
+  getCartProduct(item){
+    return {
+      key: item.key, 
+      title:item.title, 
+      imageUrl:item.imageUrl, 
+      price:item.price };
+  }
+
 
 }
