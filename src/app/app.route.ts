@@ -21,7 +21,7 @@ export const routes = [
 
     { path: 'check-out', component: CheckoutComponent, canActivate: [AuthGuard] },
     { path: 'my-orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
-    { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard] },
+    { path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuard] },
 
     { path: 'admin-orders', component: AdminOrdersComponent, canActivate: [AuthGuard,AdminAuthGuard] },
     { path: 'admin-products/new', component: AdminProductFormComponent, canActivate: [AuthGuard,AdminAuthGuard] },

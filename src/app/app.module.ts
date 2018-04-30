@@ -37,6 +37,7 @@ import { UserService } from './services/user.service';
 import { AuthGuard } from './services/auth-guard.service';
 import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { AuthService } from './services/auth.service';
+import { OrderService } from './services/order.service';
 
 import { environment } from './../environments/environment';
 import { routes } from './app.route';
@@ -63,10 +64,10 @@ import { routes } from './app.route';
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
-    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
-    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    AngularFireStorageModule, // imports firebase/storage only needed for storage features
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule,
     AngularFireDatabaseModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(routes),
@@ -83,7 +84,8 @@ import { routes } from './app.route';
     AdminAuthGuard,
     CategoryService,
     ProductService,
-    ShoppingCartService
+    ShoppingCartService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })
