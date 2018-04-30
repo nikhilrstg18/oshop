@@ -41,6 +41,7 @@ import { OrderService } from './services/order.service';
 
 import { environment } from './../environments/environment';
 import { routes } from './app.route';
+import { ShoppingCartSummaryComponent } from './components/shopping-cart-summary/shopping-cart-summary.component';
 
 
 
@@ -60,7 +61,8 @@ import { routes } from './app.route';
     ProductCardComponent,
     ProductQuantityComponent,
     ShoppingCartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ShoppingCartSummaryComponent
   ],
   imports: [
     BrowserModule,

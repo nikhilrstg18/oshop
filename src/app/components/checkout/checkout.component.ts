@@ -17,11 +17,11 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   cart: ShoppingCart;
   cartSubscription: Subscription;
   userSubscription: Subscription;
-  userId: string ;
+  userId: string;
 
   constructor(
-    private router:Router,
-    private auth:AuthService,
+    private router: Router,
+    private auth: AuthService,
     private orderService: OrderService,
     private cartService: ShoppingCartService) { }
 
@@ -29,13 +29,13 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
     let cart$ = await this.cartService.get();
     this.cartSubscription = cart$.subscribe(cart => this.cart = cart);
-    this.userSubscription = this.auth.user$.subscribe(user=>this.userId = user.uid)
+    this.userSubscription = this.auth.user$.subscribe(user => this.userId = user.uid)
 
   }
 
   ngOnDestroy() {
     this.cartSubscription.unsubscribe();
-    this.userSubscription .unsubscribe();
+    this.userSubscription.unsubscribe();
   }
 
   async placeOrder(shipping) {
