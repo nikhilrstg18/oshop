@@ -1,7 +1,7 @@
 import 'rxjs/add/observable/of';
 
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { Order } from 'shared/models/order';
 
@@ -15,8 +15,8 @@ export class OrderService {
     private cartService: ShoppingCartService,
     private db: AngularFireDatabase) { }
 
-  get(orderId: string) {
-
+  get(orderId: string): AngularFireObject<Order> {
+    return this.db.object('/orders/' + orderId);
   }
 
   getAll(): Observable<Order[]> {

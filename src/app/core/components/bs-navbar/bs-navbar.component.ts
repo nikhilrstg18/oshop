@@ -10,7 +10,7 @@ import { ShoppingCartService } from 'shared/services/shopping-cart.service';
 @Component({
   selector: 'bs-navbar',
   templateUrl: './bs-navbar.component.html',
-  styleUrls: ['./bs-navbar.component.css']
+  styleUrls: ['./bs-navbar.component.css'] 
 })
 export class BsNavbarComponent implements OnInit {
   appUser: AppUser;

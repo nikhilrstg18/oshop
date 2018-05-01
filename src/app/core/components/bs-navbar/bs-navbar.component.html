@@ -18,20 +18,12 @@
             </a>
           </li>
         </ul>
-        <ul class="navbar-nav" *ngIf='appUser'>
-            <li class="nav-item">
-            <img [src]="appUser.photo" class="thumbnail rounded-circle">
-            </li>
-            <ng-template #anonymousUser>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/login">Log in</a>
-                  </li>
-            </ng-template>
+        <ul class="navbar-nav" *ngIf='appUser'>            
             <li 
               *ngIf='appUser; else anonymousUser' 
               ngbDropdown class="nav-item dropdown">
               <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" 
-              aria-haspopup="true" aria-expanded="false">{{appUser.name}}</a>
+              aria-haspopup="true" aria-expanded="false"><img [src]="appUser.photo" class="thumbnail rounded-circle"></a>
               <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
                 <a class="dropdown-item" routerLink="/my-orders">My Orders</a>
                 <ng-container *ngIf='appUser.isAdmin'>
@@ -41,6 +33,11 @@
                 <a class="dropdown-item" (click)='logout()'>Log Out</a>          
               </div>
             </li>
+            <ng-template #anonymousUser>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login">Log in</a>
+                  </li>
+            </ng-template>
           </ul>
       </div>
   </div>

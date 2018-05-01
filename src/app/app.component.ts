@@ -27,5 +27,11 @@ export class AppComponent {
       }
     })
   }
+  
+  getYears(): string {
+    let currentYear = new Date().getFullYear();
+    let nextYear = currentYear + 1;
+    return currentYear + '-' + nextYear;
+  }
 
 }

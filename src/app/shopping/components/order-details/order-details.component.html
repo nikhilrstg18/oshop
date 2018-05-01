@@ -1,38 +1,55 @@
 <h1>Order Details</h1>
-<br />
-<div *ngFor='let order of order$ | async'>
-  <!-- <div *ngIf='order.key === userId'> -->
-      <div class="row">
-          <p>
-            Order Date : {{order.datePlaced | date}}
-          </p>
-          <div class="col-xs-12 com-sm-12 col-md-6 col-lg-6">
-            <!-- <shopping-cart-summary [cart]='order'></shopping-cart-summary> -->
-          </div>
-          <div class="col-xs-12 com-sm-12 col-md-6 col-lg-6">
-            Shipping Details
-            <ul class="list-group list-group-flush" *ngIf='order.shipping'>
-              <li class="list-group-item ">
-                Customer :
-                <div class="float-right">
-                  {{shipping.name}}
-                </div>
-      
-              </li>
-              <li class="list-group-item ">
-                Address :
-                <div class="float-right">
-                  {{shipping.line1}}, {{shipping.line2}}
-                </div>
-              </li>
-              <li class="list-group-item ">
-                City :
-                <div class="float-right">
-                  {{shipping.city}}
-                </div>
-              </li>
-            </ul>
-          </div>
+
+<div *ngIf='order'>
+  <p>
+    Order Date : {{order.datePlaced | date}}
+  </p>
+  <div class="row">
+    <div class="col-xs-12 com-sm-12 col-md-6 col-lg-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Items</h5>
+          <p class="card-text">{{order.items.length}} items in the order.</p>
+          <ul class="list-group list-group-flush">
+            <li *ngFor='let item of order.items' class="list-group-item">
+              {{item.quantity}} x {{item.product.title}}
+              <div class="float-right">
+                {{item.totalPrice | currency}}
+              </div>
+            </li>
+            <li class="list-group-item font-weight-bold">
+              Total
+              <div class="float-right">
+                {{ getTotalPrice() | currency}}
+              </div>
+            </li>
+          </ul>
         </div>
-  <!-- </div> -->
+      </div>
+    </div>
+    <div class="col-xs-12 com-sm-12 col-md-6 col-lg-6 ">
+      <h5 class="card-title">Shipping Details</h5>
+      <ul class="list-group list-group-flush" *ngIf='order.shipping'>
+        <li class="list-group-item ">
+          Customer :
+          <div class="float-right">
+            {{order.shipping.name}}
+          </div>
+
+        </li>
+        <li class="list-group-item ">
+          Address :
+          <div class="float-right">
+            {{order.shipping.line1}}, {{order.shipping.line2}}
+          </div>
+        </li>
+        <li class="list-group-item ">
+          City :
+          <div class="float-right">
+            {{order.shipping.city}}
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
