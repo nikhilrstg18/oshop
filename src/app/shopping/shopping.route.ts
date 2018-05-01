@@ -1,7 +1,7 @@
 import { AuthGuard } from 'shared/services/auth-guard.service';
 
-import { LoginComponent } from '../components/login/login.component';
-import { OopsComponent } from '../components/oops/oops.component';
+import { LoginComponent } from '../core/components/login/login.component';
+import { OopsComponent } from '../core/components/oops/oops.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { OrderDetailsComponent } from './components/order-details/order-details.component';

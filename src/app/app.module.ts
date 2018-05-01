@@ -16,25 +16,25 @@ import { environment } from './../environments/environment';
 import { AdminModule } from './admin/admin.module';
 import { AppComponent } from './app.component';
 import { routes } from './app.route';
-import { BsNavbarComponent } from './components/bs-navbar/bs-navbar.component';
-import { LoginComponent } from './components/login/login.component';
-import { OopsComponent } from './components/oops/oops.component';
+import { BsNavbarComponent } from './core/components/bs-navbar/bs-navbar.component';
+import { LoginComponent } from './core/components/login/login.component';
+import { OopsComponent } from './core/components/oops/oops.component';
 import { SharedModule } from './shared/shared.module';
 import { ShoppingModule } from './shopping/shopping.module';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    BsNavbarComponent,
-    OopsComponent
+
   ],
   imports: [
     BrowserModule,
     SharedModule,
     AdminModule,
     ShoppingModule,
+    CoreModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
