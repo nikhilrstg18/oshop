@@ -1,6 +1,6 @@
-import { OrderService } from './../../../services/order.service';
+import { OrderService } from 'shared/services/order.service';
 import { Component } from '@angular/core';
-import { Order } from '../../../models/order';
+import { Order } from 'shared/models/order';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 

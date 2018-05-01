@@ -24,20 +24,20 @@ import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { OrderSuccessComponent } from './components/order-success/order-success.component';
 import { OopsComponent } from './components/oops/oops.component';
 import { ProductFilterComponent } from './components/product-filter/product-filter.component';
-import { ProductCardComponent } from './components/product-card/product-card.component';
-import { ProductQuantityComponent } from './components/product-quantity/product-quantity.component';
+import { ProductCardComponent } from 'shared/components/product-card/product-card.component';
+import { ProductQuantityComponent } from 'shared/components/product-quantity/product-quantity.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 
 
-import { ShoppingCartService } from './services/shopping-cart.service';
-import { ProductService } from './services/product.service';
-import { CategoryService } from './services/category.service';
-import { UserService } from './services/user.service';
-import { AuthGuard } from './services/auth-guard.service';
-import { AdminAuthGuard } from './services/admin-auth-guard.service';
-import { AuthService } from './services/auth.service';
-import { OrderService } from './services/order.service';
+import { ShoppingCartService } from 'shared/services/shopping-cart.service';
+import { ProductService } from 'shared/services/product.service';
+import { CategoryService } from 'shared/services/category.service';
+import { UserService } from 'shared/services/user.service';
+import { AuthGuard } from 'shared/services/auth-guard.service';
+import { AdminAuthGuard } from 'shared/services/admin-auth-guard.service';
+import { AuthService } from 'shared/services/auth.service';
+import { OrderService } from 'shared/services/order.service';
 
 import { environment } from './../environments/environment';
 import { routes } from './app.route';

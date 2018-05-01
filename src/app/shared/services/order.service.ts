@@ -1,4 +1,4 @@
-import { Order } from './../models/order';
+import { Order } from 'shared/models/order';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
 import { ShoppingCartService } from './shopping-cart.service';

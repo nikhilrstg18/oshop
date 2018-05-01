@@ -1,4 +1,4 @@
-import { AppUser } from './../models/app-user';
+import { AppUser } from 'shared/models/app-user';
 import { UserService } from './user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';

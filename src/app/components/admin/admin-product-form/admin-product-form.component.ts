@@ -1,8 +1,8 @@
-import { Product } from './../../../models/product';
-import { CategoryService } from './../../../services/category.service';
+import { Product } from 'shared/models/product';
+import { CategoryService } from 'shared/services/category.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../../services/product.service';
+import { ProductService } from 'shared/services/product.service';
 import 'rxjs/add/operator/take';
 import { Observable } from 'rxjs/Observable';
 

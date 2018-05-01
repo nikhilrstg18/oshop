@@ -1,6 +1,6 @@
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { Injectable } from '@angular/core';
-import { Product } from '../models/product';
+import { Product } from 'shared/models/product';
 
 @Injectable()
 export class ProductService {

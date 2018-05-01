@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Order } from '../../models/order';
+import { Order } from 'shared/models/order';
 import { Router } from '@angular/router';
-import { OrderService } from '../../services/order.service';
+import { OrderService } from 'shared/services/order.service';
 
 @Component({
   selector: 'my-orders',
