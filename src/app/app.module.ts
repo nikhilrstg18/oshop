@@ -17,18 +17,19 @@ import { AdminModule } from './admin/admin.module';
 import { AppComponent } from './app.component';
 import { routes } from './app.route';
 import { BsNavbarComponent } from './components/bs-navbar/bs-navbar.component';
-import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CheckoutComponent } from './shopping/components/checkout/checkout.component';
 import { LoginComponent } from './components/login/login.component';
-import { MyOrdersComponent } from './components/my-orders/my-orders.component';
+import { MyOrdersComponent } from './shopping/components/my-orders/my-orders.component';
 import { OopsComponent } from './components/oops/oops.component';
-import { OrderDetailsComponent } from './components/order-details/order-details.component';
-import { OrderSuccessComponent } from './components/order-success/order-success.component';
-import { ProductFilterComponent } from './components/product-filter/product-filter.component';
-import { ProductsComponent } from './components/products/products.component';
-import { ShippingFormComponent } from './components/shipping-form/shipping-form.component';
-import { ShoppingCartSummaryComponent } from './components/shopping-cart-summary/shopping-cart-summary.component';
-import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { OrderDetailsComponent } from './shopping/components/order-details/order-details.component';
+import { OrderSuccessComponent } from './shopping/components/order-success/order-success.component';
+import { ProductFilterComponent } from './shopping/components/product-filter/product-filter.component';
+import { ProductsComponent } from './shopping/components/products/products.component';
+import { ShippingFormComponent } from './shopping/components/shipping-form/shipping-form.component';
+import { ShoppingCartSummaryComponent } from './shopping/components/shopping-cart-summary/shopping-cart-summary.component';
+import { ShoppingCartComponent } from './shopping/components/shopping-cart/shopping-cart.component';
 import { SharedModule } from './shared/shared.module';
+import { ShoppingModule } from './shopping/shopping.module';
 
 
 
@@ -36,24 +37,17 @@ import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent,   
-    ProductsComponent,
+    AppComponent,
     LoginComponent,
     BsNavbarComponent,
-    MyOrdersComponent,
-    OrderSuccessComponent,
     OopsComponent,
-    ProductFilterComponent,
-    ShoppingCartComponent,
-    CheckoutComponent,
-    ShoppingCartSummaryComponent,
-    ShippingFormComponent,
-    OrderDetailsComponent
+
   ],
   imports: [
     BrowserModule,
     SharedModule,
     AdminModule,
+    ShoppingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
@@ -65,7 +59,6 @@ import { SharedModule } from './shared/shared.module';
     CustomFormsModule,
     DataTableModule,
     AngularFontAwesomeModule
-
   ],
   providers: [
 

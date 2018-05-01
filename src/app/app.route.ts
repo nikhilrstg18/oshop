@@ -2,28 +2,22 @@ import { AdminProductFormComponent } from './admin/components/admin-product-form
 import { AdminAuthGuard } from './admin/services/admin-auth-guard.service';
 import { CanActivate } from '@angular/router';
 import { AuthGuard } from 'shared/services/auth-guard.service';
-import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CheckoutComponent } from './shopping/components/checkout/checkout.component';
 import { AdminProductsComponent } from './admin/components/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/components/admin-orders/admin-orders.component';
-import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
-import { MyOrdersComponent } from './components/my-orders/my-orders.component';
-import { ProductsComponent } from './components/products/products.component';
-import { OrderSuccessComponent } from './components/order-success/order-success.component';
+import { ShoppingCartComponent } from './shopping/components/shopping-cart/shopping-cart.component';
+import { MyOrdersComponent } from './shopping/components/my-orders/my-orders.component';
+import { ProductsComponent } from './shopping/components/products/products.component';
+import { OrderSuccessComponent } from './shopping/components/order-success/order-success.component';
 import { OopsComponent } from './components/oops/oops.component';
 import { LoginComponent } from './components/login/login.component';
-import { OrderDetailsComponent } from './components/order-details/order-details.component';
+import { OrderDetailsComponent } from './shopping/components/order-details/order-details.component';
 
 
 export const routes = [
     { path: '', component: ProductsComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'products', component: ProductsComponent },
-    { path: 'shopping-cart', component: ShoppingCartComponent },
-
-    { path: 'check-out', component: CheckoutComponent, canActivate: [AuthGuard] },
-    { path: 'my-orders/:id', component: OrderDetailsComponent, canActivate: [AuthGuard] },
-    { path: 'my-orders', component: MyOrdersComponent, canActivate: [AuthGuard] },
-    { path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuard] },
+   
 
     { path: 'admin-orders/:id', component: OrderDetailsComponent, canActivate: [AuthGuard,AdminAuthGuard] },
     { path: 'admin-orders', component: AdminOrdersComponent, canActivate: [AuthGuard,AdminAuthGuard] },
