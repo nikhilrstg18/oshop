@@ -1,5 +1,6 @@
-import { ShoppingCartItem } from './shoppin-cart-item';
 import { Product } from './product';
+import { ShoppingCartItem } from './shoppin-cart-item';
+
 export class ShoppingCart {
     items: ShoppingCartItem[] = [];
 

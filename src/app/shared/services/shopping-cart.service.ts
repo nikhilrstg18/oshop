@@ -1,9 +1,10 @@
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/take';
+
+import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import { Product } from 'shared/models/product';
-import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
-import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/map';
 import { ShoppingCart } from 'shared/models/shopping-cart';
 
 @Injectable()

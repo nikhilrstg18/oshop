@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Order } from 'shared/models/order';
-import { Router } from '@angular/router';
 import { OrderService } from 'shared/services/order.service';
 
 @Component({

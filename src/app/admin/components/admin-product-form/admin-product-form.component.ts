@@ -1,10 +1,10 @@
+import 'rxjs/add/operator/take';
+
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'shared/models/product';
 import { CategoryService } from 'shared/services/category.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'shared/services/product.service';
-import 'rxjs/add/operator/take';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'admin-product-form',

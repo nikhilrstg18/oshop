@@ -1,9 +1,12 @@
-import { Order } from 'shared/models/order';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { Injectable } from '@angular/core';
-import { ShoppingCartService } from './shopping-cart.service';
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+
+import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
+import { Order } from 'shared/models/order';
+
+import { ShoppingCartService } from './shopping-cart.service';
+
 
 @Injectable()
 export class OrderService {

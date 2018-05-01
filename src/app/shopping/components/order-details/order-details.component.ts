@@ -1,6 +1,6 @@
-import { OrderService } from 'shared/services/order.service';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { OrderService } from 'shared/services/order.service';
 
 @Component({
   selector: 'order-details',

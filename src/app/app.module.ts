@@ -17,22 +17,10 @@ import { AdminModule } from './admin/admin.module';
 import { AppComponent } from './app.component';
 import { routes } from './app.route';
 import { BsNavbarComponent } from './components/bs-navbar/bs-navbar.component';
-import { CheckoutComponent } from './shopping/components/checkout/checkout.component';
 import { LoginComponent } from './components/login/login.component';
-import { MyOrdersComponent } from './shopping/components/my-orders/my-orders.component';
 import { OopsComponent } from './components/oops/oops.component';
-import { OrderDetailsComponent } from './shopping/components/order-details/order-details.component';
-import { OrderSuccessComponent } from './shopping/components/order-success/order-success.component';
-import { ProductFilterComponent } from './shopping/components/product-filter/product-filter.component';
-import { ProductsComponent } from './shopping/components/products/products.component';
-import { ShippingFormComponent } from './shopping/components/shipping-form/shipping-form.component';
-import { ShoppingCartSummaryComponent } from './shopping/components/shopping-cart-summary/shopping-cart-summary.component';
-import { ShoppingCartComponent } from './shopping/components/shopping-cart/shopping-cart.component';
 import { SharedModule } from './shared/shared.module';
 import { ShoppingModule } from './shopping/shopping.module';
-
-
-
 
 
 @NgModule({
@@ -40,8 +28,7 @@ import { ShoppingModule } from './shopping/shopping.module';
     AppComponent,
     LoginComponent,
     BsNavbarComponent,
-    OopsComponent,
-
+    OopsComponent
   ],
   imports: [
     BrowserModule,
