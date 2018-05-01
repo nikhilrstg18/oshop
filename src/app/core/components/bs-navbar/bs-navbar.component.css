@@ -4,8 +4,19 @@
 .thumbnail{
     width: 40px;
     height: 40px;
-    border: 2px solid #e7e7e7;
+    border: 3px solid #e7e7e7;
+
 }
 .dropdown-menu{
-    margin: 0.125rem -5.875rem 0px!important;
+    margin: 0.125rem -6.875rem 0px!important;
 }
+
+.navbar{
+    padding-bottom:0!important;
+}
+.navbar container{
+    padding-bottom:0!important;
+}
+.nav-link{
+    padding:0!important;
+} 
