@@ -1,5 +1,5 @@
 import { AdminProductFormComponent } from './components/admin/admin-product-form/admin-product-form.component';
-import { AdminAuthGuard } from 'shared/services/admin-auth-guard.service';
+import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { CanActivate } from '@angular/router';
 import { AuthGuard } from 'shared/services/auth-guard.service';
 import { CheckoutComponent } from './components/checkout/checkout.component';
