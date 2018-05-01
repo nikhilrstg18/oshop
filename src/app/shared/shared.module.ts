@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ProductCardComponent } from 'shared/components/product-card/product-card.component';
 import { ProductQuantityComponent } from 'shared/components/product-quantity/product-quantity.component';
-import { AdminAuthGuard } from '../services/admin-auth-guard.service';
+import { AdminAuthGuard } from '../admin/services/admin-auth-guard.service';
 import { AuthGuard } from 'shared/services/auth-guard.service';
 import { AuthService } from 'shared/services/auth.service';
 import { CategoryService } from 'shared/services/category.service';
@@ -27,7 +27,6 @@ import { UserService } from 'shared/services/user.service';
     AuthService,
     AuthGuard,
     UserService,
-
     CategoryService,
     ProductService,
     ShoppingCartService,

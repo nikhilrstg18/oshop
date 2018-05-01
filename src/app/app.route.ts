@@ -1,10 +1,10 @@
-import { AdminProductFormComponent } from './components/admin/admin-product-form/admin-product-form.component';
-import { AdminAuthGuard } from './services/admin-auth-guard.service';
+import { AdminProductFormComponent } from './admin/components/admin-product-form/admin-product-form.component';
+import { AdminAuthGuard } from './admin/services/admin-auth-guard.service';
 import { CanActivate } from '@angular/router';
 import { AuthGuard } from 'shared/services/auth-guard.service';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
-import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orders.component';
+import { AdminProductsComponent } from './admin/components/admin-products/admin-products.component';
+import { AdminOrdersComponent } from './admin/components/admin-orders/admin-orders.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { ProductsComponent } from './components/products/products.component';

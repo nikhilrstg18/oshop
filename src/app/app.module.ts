@@ -13,11 +13,9 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 import { CustomFormsModule } from 'ng5-validation';
 
 import { environment } from './../environments/environment';
+import { AdminModule } from './admin/admin.module';
 import { AppComponent } from './app.component';
 import { routes } from './app.route';
-import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orders.component';
-import { AdminProductFormComponent } from './components/admin/admin-product-form/admin-product-form.component';
-import { AdminProductsComponent } from './components/admin/admin-products/admin-products.component';
 import { BsNavbarComponent } from './components/bs-navbar/bs-navbar.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { LoginComponent } from './components/login/login.component';
@@ -30,7 +28,6 @@ import { ProductsComponent } from './components/products/products.component';
 import { ShippingFormComponent } from './components/shipping-form/shipping-form.component';
 import { ShoppingCartSummaryComponent } from './components/shopping-cart-summary/shopping-cart-summary.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
-import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { SharedModule } from './shared/shared.module';
 
 
@@ -39,10 +36,7 @@ import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    AdminProductsComponent,
-    AdminOrdersComponent,
-    AdminProductFormComponent,
+    AppComponent,   
     ProductsComponent,
     LoginComponent,
     BsNavbarComponent,
@@ -59,6 +53,7 @@ import { SharedModule } from './shared/shared.module';
   imports: [
     BrowserModule,
     SharedModule,
+    AdminModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
@@ -73,7 +68,7 @@ import { SharedModule } from './shared/shared.module';
 
   ],
   providers: [
-    AdminAuthGuard,
+
 
   ],
   bootstrap: [AppComponent]
