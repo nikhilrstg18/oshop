@@ -28,7 +28,27 @@ export class OrderService {
   async placeOrder(order) {
     let result = await this.db.list('/orders').push(order);
     this.cartService.clearCart();
+    this.monthly();
     return result;
+  }
+
+  private monthly() {
+    debugger
+    let orderToRemove = [];
+    let currDate = new Date();
+    this.getAll().subscribe(orders => {
+      for (let order of orders) {
+        if (currDate.getMonth() - new Date(order.datePlaced).getMonth() >= 1)
+          orderToRemove.push(order);
+      }
+
+      if (orderToRemove.length > 0) {
+        for (let order of orderToRemove) {
+          this.db.object('/orders/' + order.key).remove();
+        }
+      }
+    });
+
   }
 
 }

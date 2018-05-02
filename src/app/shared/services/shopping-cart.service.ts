@@ -10,9 +10,7 @@ import { ShoppingCart } from 'shared/models/shopping-cart';
 @Injectable()
 export class ShoppingCartService {
 
-  constructor(
-    private db: AngularFireDatabase
-  ) { }
+  constructor(private db: AngularFireDatabase) { }
 
   async get(): Promise<Observable<ShoppingCart>> {
     let cartId = await this.getOrCreateCartId();
@@ -21,17 +19,45 @@ export class ShoppingCartService {
       .map(x => new ShoppingCart(x['items']));
   }
 
+  getAll() {
+    return this.db.list('/shopping-carts/').snapshotChanges().map(cart => {
+      return cart.map(p => ({ key: p.key, ...p.payload.val() }));
+    });
+  }
+
   async addToCart(product: Product) {
     this.updateCartItem(product, 1);
   }
 
   async removeFromCart(product: Product) {
     this.updateCartItem(product, -1);
+    this.monthly();
   }
 
   async clearCart() {
     let cartId = await this.getOrCreateCartId();
     this.db.object('/shopping-carts/' + cartId + '/items').remove();
+  }
+
+  private monthly() {
+    debugger
+    let cartToRemove = [];
+    let currDate = new Date();
+    this.getAll().subscribe(carts => {
+      for (let cart of carts) {
+        if (currDate.getMonth() - new Date(cart.dateCreated).getMonth() >= 1)
+          cartToRemove.push(cart);
+      }
+
+      if (cartToRemove.length > 0) {
+        for (let cart of cartToRemove) {
+          this.db.object('/shopping-carts/' + cart.key).remove();
+
+          if (localStorage.getItem('cartId') === cart.key)
+            localStorage.removeItem('cartId');
+        }
+      }
+    });
 
   }
 
