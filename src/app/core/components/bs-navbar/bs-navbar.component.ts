@@ -18,10 +18,8 @@ export class BsNavbarComponent implements OnInit {
 
   constructor(
     private cartService: ShoppingCartService,
-    private auth: AuthService,
+    public auth: AuthService,
     private router: Router) {
-    auth.appUser$
-      .subscribe(appUser => this.appUser = appUser);
 
   }
 
@@ -33,7 +31,8 @@ export class BsNavbarComponent implements OnInit {
   async ngOnInit() {
     this.auth.appUser$
       .subscribe(appUser => this.appUser = appUser);
-     await this.cartService.get().then(cart=>this.cart$= cart);
+
+    await this.cartService.get().then(cart=>this.cart$= cart);
 
 
   }
