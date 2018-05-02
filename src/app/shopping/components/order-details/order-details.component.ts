@@ -22,7 +22,6 @@ export class OrderDetailsComponent {
       .take(1)
       .subscribe(o => {
         this.order = o;
-        console.log(this.order);
       });
   }
   
