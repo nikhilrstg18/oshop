@@ -2,7 +2,7 @@
 
 <div class='row col-xl-10 col-lg-10 col-md-12 col-sm-12' *ngIf='cart$ | async as cart'>
   <p>
-    You have {{cart.totalItemsCount}} in your shopping cart.
+    You have {{cart.totalItemsCount}} items in your shopping cart.
     <button  *ngIf ='cart.items.length' 
      (click)='clearCart()'
      class="btn btn-light btn-sm">Clear Shopping Cart</button>
@@ -19,7 +19,7 @@
     <tbody>
       <tr *ngFor='let item of cart.items'>
         <td style='width:13%'>
-          <img [src]='item.imageUrl' class='thumbnail rounded'>
+          <img [src]='item.imageUrl' class='thumbnail rounded shadow rounded'>
         </td>
         <td>{{ item.title }}</td>
         <td>

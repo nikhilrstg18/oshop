@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Compiler } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -53,4 +53,9 @@ import { CoreModule } from './core/core.module';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+  constructor(private compiler: Compiler){
+    compiler.clearCache();
+  }
+}
